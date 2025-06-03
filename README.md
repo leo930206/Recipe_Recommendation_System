@@ -35,8 +35,7 @@
 
 可使用以下指令安裝所需套件：
 
-```bash
-pip install pandas openpyxl```
+`pip install pandas openpyxl`
 
 ## 使用說明
 1. 確保已安裝所需 Python 套件。
@@ -45,6 +44,8 @@ pip install pandas openpyxl```
 4. 執行主程式 recipe_recommendation_system.py。
 5. 在輸入框輸入你擁有的食材（多個以空格分隔），點擊「開始搜尋」。
 6. 系統會顯示符合條件的食譜，並可查看詳細內容。
+
+--------------------------------------------------------------
 
 # Recipe Recommendation System
 
@@ -83,8 +84,7 @@ The Recipe Recommendation System is a desktop application developed in Python de
 
 Install required packages using:
 
-```bash
-pip install pandas openpyxl```
+`pip install pandas openpyxl`
 
 ## Usage Instructions
 1. Make sure required Python packages are installed.
