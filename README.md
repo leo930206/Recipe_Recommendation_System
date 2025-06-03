@@ -1,4 +1,4 @@
-# 食材運用推薦系統 Recipe Recommendation System
+# 食材運用推薦系統
 
 ## 專案介紹
 
@@ -12,18 +12,31 @@
 - **詳細食譜展示**：包含食譜名稱、標籤、食材清單、份量、烹調時間及詳細步驟。
 - **使用者介面**：基於 Tkinter 製作，支援動態排版與自動換行，提升操作體驗。
 
+## 技術說明
+
+- 資料爬取：使用 Python 的 requests 和 BeautifulSoup 套件，從 icook 愛料理網站爬取食譜相關資訊。
+- 資料處理：利用 Pandas 進行資料清洗與結構化。
+- 同義詞處理：建立同義詞對照表，於搜尋前將輸入食材轉換成統一標準。
+- 搜尋優化：
+  - 導入快取機制，將預處理後資料使用 pickle 存於本地，加速程式啟動。
+  - 使用倒排索引（Inverted Index）技術，減少搜尋比對範圍，提高效能。
+- 排序邏輯：
+  - 優先顯示使用者擁有食材數量多的食譜。
+  - 同數量情況下，優先顯示缺少食材數量少的食譜。
+- GUI：採用 Tkinter，配合自訂 FlowFrame 元件實現動態排版與視窗自適應。
+
 ## 環境需求
 
-- Python 3.8+
+- Python 3.8 以上
 - 需要安裝的套件：
   - pandas
   - openpyxl
   - tkinter（Python 內建）
-  
-  可以使用以下指令安裝：
 
-  ```bash
-  pip install pandas openpyxl
+可使用以下指令安裝所需套件：
+
+```bash
+pip install pandas openpyxl
 
 ## 使用說明
 1. 確保已安裝所需 Python 套件。
@@ -32,3 +45,51 @@
 4. 執行主程式 recipe_recommendation_system.py。
 5. 在輸入框輸入你擁有的食材（多個以空格分隔），點擊「開始搜尋」。
 6. 系統會顯示符合條件的食譜，並可查看詳細內容。
+
+# Recipe Recommendation System
+
+## Project Overview
+
+The Recipe Recommendation System is a desktop application developed in Python designed to help users find the most suitable recipes based on the ingredients they currently have. The system aims to effectively utilize leftover ingredients, reduce food waste, and minimize unnecessary ingredient purchases. By combining web scraping, data processing, and fast search techniques, the system provides a simple and practical user interface, enabling users to quickly discover dishes they can cook.
+
+## Main Features
+
+- **Ingredient Input Interface**: Allows users to input multiple ingredients, and the system intelligently recommends recipes based on available ingredients.
+- **Synonym Handling**: Uses a synonym dictionary to resolve inconsistencies in ingredient names, improving search accuracy.
+- **Result Sorting**: Prioritizes recipes where users have the most ingredients and require the fewest missing ones.
+- **Detailed Recipe Display**: Shows recipe name, tags, ingredient list, servings, cooking time, and step-by-step instructions.
+- **User Interface**: Built with Tkinter, supports dynamic layout and automatic text wrapping for improved user experience.
+
+## Technical Details
+
+- Data Crawling: Uses Python libraries such as requests and BeautifulSoup to scrape recipe data from the icook website.
+- Data Processing: Uses Pandas for data cleaning and structuring.
+- Synonym Handling: Builds a synonym mapping table to standardize ingredient names before searching.
+- Search Optimization:
+  - Implements caching using Python’s pickle to store preprocessed data locally, speeding up startup.
+  - Utilizes an inverted index to reduce search scope and increase efficiency.
+- Sorting Logic:
+  - Recipes with more owned ingredients are prioritized.
+  - If the number of owned ingredients is the same, recipes with fewer missing ingredients are prioritized.
+- GUI: Developed with Tkinter and enhanced with a custom FlowFrame component for dynamic layout and responsive window adaptation.
+
+## Environment Requirements
+
+- Python 3.8 or higher
+- Required packages:
+  - pandas
+  - openpyxl
+  - tkinter (built into Python)
+
+Install required packages using:
+
+```bash
+pip install pandas openpyxl
+
+## Usage Instructions
+1. Make sure required Python packages are installed.
+2. Run icook_scraper.py to crawl the latest recipe data, which will be saved as recipes.xlsx. (Skip if you want to use the default recipe data)
+3. Use create_synonyms_excel.py to generate or update the synonym dictionary file synonyms.xlsx. (Skip if you want to use the default synonym file)
+4. Run the main program recipe_recommendation_system.py.
+5. Input your available ingredients in the input box (multiple ingredients separated by spaces), then click "Start Search".
+6. The system will display a list of matching recipes and you can view detailed recipe information.
