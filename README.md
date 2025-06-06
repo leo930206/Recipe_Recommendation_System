@@ -2,7 +2,7 @@
 
 ## 專案介紹
 
-智慧食材推薦系統是一套以 Python 開發的桌面應用程式，旨在幫助使用者根據手邊現有的食材，推薦最適合的食譜，達成有效利用剩餘食材、減少浪費及購買食材的目標。本系統結合網路爬蟲、資料處理與快速搜尋技術，提供簡潔且實用的使用介面，方便使用者快速找到可烹調的菜餚。
+食材運用推薦系統是一套以 Python 開發的桌面應用程式，旨在幫助使用者根據手邊現有的食材，推薦最適合的食譜，達成有效利用剩餘食材、減少浪費及購買食材的目標。本系統結合網路爬蟲、資料處理與快速搜尋技術，提供簡潔且實用的使用介面，方便使用者快速找到可烹調的菜餚。
 
 ## 主要功能
 
@@ -19,7 +19,6 @@
 - 同義詞處理：建立同義詞對照表，於搜尋前將輸入食材轉換成統一標準。
 - 搜尋優化：
   - 導入快取機制，將預處理後資料使用 pickle 存於本地，加速程式啟動。
-  - 使用倒排索引（Inverted Index）技術，減少搜尋比對範圍，提高效能。
 - 排序邏輯：
   - 優先顯示使用者擁有食材數量多的食譜。
   - 同數量情況下，優先顯示缺少食材數量少的食譜。
@@ -68,7 +67,6 @@ The Recipe Recommendation System is a desktop application developed in Python de
 - Synonym Handling: Builds a synonym mapping table to standardize ingredient names before searching.
 - Search Optimization:
   - Implements caching using Python’s pickle to store preprocessed data locally, speeding up startup.
-  - Utilizes an inverted index to reduce search scope and increase efficiency.
 - Sorting Logic:
   - Recipes with more owned ingredients are prioritized.
   - If the number of owned ingredients is the same, recipes with fewer missing ingredients are prioritized.
